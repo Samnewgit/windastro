@@ -38,10 +38,11 @@ Time of Birth: ${time}
 City: ${city}
 Country: ${country}`;
 
-    const apiRes = await fetch('https://api.deepseek.com/chat/completions', {
+    const apiRes = await fetch('https://api.deepseek.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'Authorization': `Bearer ${env.DEEPSEEK_API_KEY}`
       },
       body: JSON.stringify({
