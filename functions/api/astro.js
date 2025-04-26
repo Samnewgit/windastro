@@ -46,7 +46,7 @@ Country: ${country}`;
         'Authorization': `Bearer ${env.DEEPSEEK_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
+        model: 'deepseek-chat',
         messages: [
           { role: 'system', content: systemMessage },
           { role: 'user', content: userMessage }
