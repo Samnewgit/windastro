@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Astrology Analysis</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-xl mx-auto mt-10 p-6 bg-white shadow rounded">
+    <h1 class="text-3xl font-bold mb-6 text-center">Astrology Analysis</h1>
+    <form id="astro-form" class="space-y-4">
+      <div>
+        <label for="date" class="block text-sm font-medium">Date of Birth</label>
+        <input type="date" id="date" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+      </div>
+      <div>
+        <label for="time" class="block text-sm font-medium">Time of Birth</label>
+        <input type="time" id="time" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+      </div>
+      <div>
+        <label for="city" class="block text-sm font-medium">City</label>
+        <input type="text" id="city" placeholder="City" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+      </div>
+      <div>
+        <label for="country" class="block text-sm font-medium">Country</label>
+        <input type="text" id="country" placeholder="Country" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" />
+      </div>
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">Analyze</button>
+    </form>
+    <div id="result" class="mt-8 prose max-w-none"></div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
