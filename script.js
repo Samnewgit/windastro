@@ -5,6 +5,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   resultDiv.innerHTML = '<p class="text-center text-gray-500">Analyzing...</p>';
   const payload = {
+    name: document.getElementById('name').value,
     date: document.getElementById('date').value,
     time: document.getElementById('time').value,
     city: document.getElementById('city').value,
@@ -27,7 +28,7 @@ form.addEventListener('submit', async (e) => {
       md = md.slice(1, -1).trim();
     }
     const html = marked.parse(md);
-    resultDiv.innerHTML = `<div class="prose max-w-full astro-content">${html}</div>`;
+    resultDiv.innerHTML = `<div class="prose max-w-full astro-content"><h2 class="text-xl font-bold mb-2">${payload.name}</h2>${html}</div>`;
   } catch (err) {
     resultDiv.innerHTML = `<p class="text-red-600">Error: ${err.message}</p>`;
   }
