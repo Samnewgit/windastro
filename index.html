@@ -12,6 +12,8 @@
     .astro-table th, .astro-table td { border: 1px solid #e5e7eb; padding: 0.5rem; }
     .astro-table th { background-color: #f9fafb; }
     .astro-content { overflow-x: auto; }
+    .astro-content > * + * { margin-top: 1.5rem; }
+    .astro-content .astro-table { margin: 1rem 0; }
     body {
       background-color: #0d0d0d;
       background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
@@ -24,6 +26,10 @@
   <div class="w-full mx-auto mt-10 p-6 bg-gray-800 bg-opacity-80 shadow-lg rounded-lg max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
     <h1 class="text-3xl font-bold mb-6 text-center text-white">Astrology Analysis</h1>
     <form id="astro-form" class="space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-200">Name</label>
+        <input type="text" id="name" placeholder="Your Name" required class="mt-1 block w-full border border-gray-600 rounded-md shadow-sm p-2 bg-gray-700 text-white placeholder-gray-400" />
+      </div>
       <div>
         <label for="date" class="block text-sm font-medium text-gray-200">Date of Birth</label>
         <input type="date" id="date" required class="mt-1 block w-full border border-gray-600 rounded-md shadow-sm p-2 bg-gray-700 text-white placeholder-gray-400" />
@@ -42,7 +48,7 @@
       </div>
       <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">Analyze</button>
     </form>
-    <div id="result" class="mt-8 astro-content text-gray-200"></div>
+    <div id="result" class="mt-8 astro-content text-gray-200 space-y-6"></div>
   </div>
   <script src="./script.js"></script>
 </body>
