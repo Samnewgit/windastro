@@ -16,10 +16,18 @@ form.addEventListener('submit', async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    if (!res.ok) {
+      const errBody = await res.text();
+      throw new Error(`${res.status} ${res.statusText}\n${errBody}`);
+    }
     const data = await res.json();
-    const content = data.choices?.[0]?.message?.content || JSON.stringify(data, null, 2);
-    resultDiv.innerHTML = `<div class="prose max-w-none whitespace-pre-wrap">${content}</div>`;
+    let md = data.choices?.[0]?.message?.content || JSON.stringify(data, null, 2);
+    md = md.trim();
+    if (md.startsWith('[') && md.endsWith(']')) {
+      md = md.slice(1, -1).trim();
+    }
+    const html = marked.parse(md);
+    resultDiv.innerHTML = `<div class="prose max-w-full astro-content">${html}</div>`;
   } catch (err) {
     resultDiv.innerHTML = `<p class="text-red-600">Error: ${err.message}</p>`;
   }
